@@ -1,7 +1,7 @@
-from hashlib import new
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboards import Scoreboards
 import time
 
 screen = Screen()
@@ -11,8 +11,12 @@ screen.title("My Snake Game")
 screen.tracer(0)
 screen.listen()
 
+scoreboards = Scoreboards()
 snake = Snake()
 food = Food()
+
+
+
 
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
@@ -25,13 +29,22 @@ starting_positions = [(0,0), (-20,0), (-40,0)]
 segments = []
 
 game_is_on = True
+
 while game_is_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+    
 
     ## Detect food being eaten ##
-    if sn
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        scoreboards.add_score()
+
+    ## Detect collision with wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.xcor() < -280:
+        game_is_on = False
+        scoreboards.game_over() 
 
 
 
