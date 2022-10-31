@@ -31,7 +31,8 @@ while game_is_on:
     snake.move()
 
     ## Detect food being eaten ##
-    
+    if sn
+
 
 
 
