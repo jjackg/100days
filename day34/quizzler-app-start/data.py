@@ -5,12 +5,12 @@ parameters = {
     "type": "boolean"
 }
 
-response = requests.get("https://opentdb.com/api.php", param = parameters)
+response = requests.get("https://opentdb.com/api.php", params = parameters)
 response.raise_for_status()
 response.json()
 data = response.json()
 question_data = data["results"]
-
+print(question_data)
 
 # question_data = [
 #     {
