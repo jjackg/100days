@@ -10,7 +10,6 @@ response.raise_for_status()
 response.json()
 data = response.json()
 question_data = data["results"]
-print(question_data)
 
 # question_data = [
 #     {
